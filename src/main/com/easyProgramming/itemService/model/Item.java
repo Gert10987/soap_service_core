@@ -10,7 +10,6 @@ public class Item {
 
     private Long id;
     private String name;
-    private int quantity;
 
     public Item(){
 
@@ -28,14 +27,6 @@ public class Item {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public String getName() {
         return name;
     }
@@ -48,7 +39,6 @@ public class Item {
     public String toString() {
         return "Item{"
                 + "id=" + id
-                + ", name=" + name
-                + ", quantity=" + quantity + '}';
+                + ", name=" + name + '}';
     }
 }

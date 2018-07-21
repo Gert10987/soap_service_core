@@ -3,7 +3,7 @@ package com.easyProgramming.itemService.boundary;
 import com.easyProgramming.itemService.control.ItemServiceControl;
 import com.easyProgramming.itemService.model.Item;
 import com.easyProgramming.itemService.repository.Component;
-import com.easyProgramming.itemService.repository.ItemRepository;
+import com.easyProgramming.itemService.repository.IItemRepository;
 
 import javax.inject.Inject;
 import javax.jws.WebMethod;
@@ -16,7 +16,7 @@ import javax.jws.soap.SOAPBinding;
         portName = "ItemService",
         targetNamespace = "http://easyProgramming.com")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public class ItemService implements ItemRepository{
+public class IItemService implements IItemRepository {
 
     @Inject
     @Component
