@@ -11,9 +11,7 @@ public class Item {
     private Long id;
     private String name;
 
-    public Item(){
-
-    }
+    public Item(){}
 
     public Item(Long id) {
         this.id = id;
