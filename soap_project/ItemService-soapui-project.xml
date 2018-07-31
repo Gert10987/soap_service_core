@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="06d04f60-664b-40de-be03-47513d94b9ac" activeEnvironment="Default" name="ItemService" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="46fbd80a-9842-4bea-bdf4-d113f205d3b7" wsaVersion="NONE" name="ItemServiceSoapBinding" type="wsdl" bindingName="{http://easyProgramming.com}ItemServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/itemService/ItemService?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/itemService/ItemService?WSDL"><con:part><con:url>http://localhost:8080/itemService/ItemService?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="ItemService" targetNamespace="http://easyProgramming.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://easyProgramming.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://easyProgramming.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="item">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="itemServiceRegisterResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="com.easyProgramming.itemServiceRegisterResponse" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://easyProgramming.com">
+      <xs:import namespace="http://easyProgramming.com"/>
+      <xs:element name="ItemServiceRegisterResponse" type="ns1:itemServiceRegisterResponse"/>
+    </xs:schema>
+    <xs:schema targetNamespace="com.easyProgramming.item" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://easyProgramming.com">
+      <xs:import namespace="http://easyProgramming.com"/>
+      <xs:element name="Item" type="ns1:item"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="checkItem">
+    <wsdl:part name="itemId" type="xsd:long"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerItem">
+    <wsdl:part name="item" type="tns:item"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerItemResponse">
+    <wsdl:part name="ItemServiceResponse" type="tns:itemServiceRegisterResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkItemResponse">
+    <wsdl:part name="Item" type="tns:item"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ItemService">
+    <wsdl:operation name="checkItem">
+      <wsdl:input message="tns:checkItem" name="checkItem"></wsdl:input>
+      <wsdl:output message="tns:checkItemResponse" name="checkItemResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerItem">
+      <wsdl:input message="tns:registerItem" name="registerItem"></wsdl:input>
+      <wsdl:output message="tns:registerItemResponse" name="registerItemResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ItemServiceSoapBinding" type="tns:ItemService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="checkItem">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="checkItem">
+        <soap:body namespace="http://easyProgramming.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkItemResponse">
+        <soap:body namespace="http://easyProgramming.com" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerItem">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="registerItem">
+        <soap:body namespace="http://easyProgramming.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerItemResponse">
+        <soap:body namespace="http://easyProgramming.com" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ItemService">
+    <wsdl:port binding="tns:ItemServiceSoapBinding" name="ItemService">
+      <soap:address location="http://localhost:8080/itemService/ItemService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/itemService/ItemService</con:endpoint></con:endpoints><con:operation id="627b797b-bc6c-4e0b-9b0d-dae7955fb837" isOneWay="false" action="" name="checkItem" bindingOperationName="checkItem" type="Request-Response" outputName="checkItemResponse" inputName="checkItem" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b6e9477e-4050-4e43-939d-47219e5c590c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/itemService/ItemService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eas="http://easyProgramming.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <eas:checkItem>
+         <itemId>?</itemId>
+      </eas:checkItem>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://easyProgramming.com/ItemService/checkItem"/></con:call></con:operation><con:operation id="b2fa42a1-d6fe-401e-974a-af4bfa75b8e4" isOneWay="false" action="" name="registerItem" bindingOperationName="registerItem" type="Request-Response" outputName="registerItemResponse" inputName="registerItem" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c27c964-afef-4526-84c7-f06463f84cc7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/itemService/ItemService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eas="http://easyProgramming.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <eas:registerItem>
+         <item>
+            <!--Optional:-->
+            <id>1</id>
+            <!--Optional:-->
+            <name>Book</name>
+         </item>
+      </eas:registerItem>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://easyProgramming.com/ItemService/insertItem"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="78edc6c1-87c6-4daf-a698-39dd05eaffd5" name="ItemServiceTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9a0906b1-741f-4357-a8ff-993a0ef21538" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ItemServiceTestCase" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="CheckDatabaseConnection" id="3e21578a-d9ce-4a07-993f-bf3e303ee9e1"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#TestSuite#DATABASE_DRIVER}</con:driver><con:connectionString>${#TestSuite#CONNECTION_STRING_DATABASE}</con:connectionString><con:properties/></con:config></con:testStep><con:testStep type="request" name="registerItemStep" id="5e151b4f-3cb9-4cc2-a945-cbe62af62205"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ItemServiceSoapBinding</con:interface><con:operation>registerItem</con:operation><con:request name="registerItemStep" id="d08b02de-c042-4511-b123-d0d5261101d1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#TestSuite#SERVER_ADRESS}/itemService/ItemService</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <eas:registerItem xmlns:eas="http://easyProgramming.com">
+         <item>
+            <id>?</id>
+            <name>?</name>
+         </item>
+      </eas:registerItem>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3064ad84-be39-42e3-9aea-ac4e34d320dc"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="UpdateDocumentId" id="6b2b3a89-2848-49a2-a11d-f31835ccb577"><con:settings/><con:config><script><![CDATA[import groovy.sql.Sql
+import groovy.xml.*
+
+//Get properties
+String CONNECTION_STRING_DATABASE = testRunner.testCase.testSuite.getPropertyValue("CONNECTION_STRING_DATABASE")
+String DATABASE_DRIVER = testRunner.testCase.testSuite.getPropertyValue("DATABASE_DRIVER")
+
+//Init Database connection
+def sql = Sql.newInstance(CONNECTION_STRING_DATABASE, DATABASE_DRIVER)
+
+//Query
+String query = "SELECT * FROM items WHERE document_id is null"
+
+//Query excecution
+sql.eachRow(query) { row ->
+
+	Integer id = row.id as Integer
+	String name = row.name as String
+	
+	//Assign values from DB to request parameters
+	def defaultRequest = new XmlSlurper().parseText(getDefaultRequest())
+
+	defaultRequest.Body.registerItem.item.id = id
+	defaultRequest.Body.registerItem.item.name = name
+
+	//Init SOAP test step
+	def registerItem = testRunner.testCase.getTestStepByName("registerItemStep")
+
+	//Assign content with assigned attributes
+	registerItem.getHttpRequest().setRequestContent(XmlUtil.serialize(defaultRequest))
+
+	//Run insertItem Step
+	registerItem.run(testRunner, context)
+
+	//Get response from service
+	def responseXml = new XmlSlurper().parseText(registerItem.getAssertableContent())
+
+	//Assign document id from response
+	String documentId = responseXml.Body.registerItemResponse.ItemServiceResponse.itemId
+
+	if(documentId != null && documentId != ""){
+
+		log.info('Register successfuly ' + documentId)
+
+		sql.execute("UPDATE items SET document_id = ? WHERE id = ?", [documentId, id])
+		
+	}else{
+
+		log.info(responseXml.Body.registerItemResponse.ItemServiceResponse.description as String)		
+	}
+}
+
+log.info("Done")
+
+//Default reqeust from schema for insertItem webMethod
+private String getDefaultRequest(){
+   
+   return '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eas="http://easyProgramming.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <eas:registerItem>
+         <item>
+            <!--Optional:-->
+            <id>?</id>
+            <!--Optional:-->
+            <name>?</name>
+         </item>
+      </eas:registerItem>
+   </soapenv:Body>
+</soapenv:Envelope>'''
+}
+]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>CONNECTION_STRING_DATABASE</con:name><con:value>jdbc:postgresql://HOST:PORT/DATBASE?user=USER_NAME&amp;password=PASSWORD</con:value></con:property><con:property><con:name>DATABASE_DRIVER</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>SERVER_ADRESS</con:name><con:value>HOST:PORT</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
