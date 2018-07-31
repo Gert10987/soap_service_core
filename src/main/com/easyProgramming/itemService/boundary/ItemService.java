@@ -30,7 +30,7 @@ public class ItemService implements IItemRepository {
         return itemServiceControl.checkItem(id);
     }
 
-    @WebMethod(operationName = "insertItem")
+    @WebMethod(operationName = "registerItem")
     @WebResult(name = "ItemServiceResponse")
     @Override
     public ItemServiceRegisterResponse registerItem(@WebParam(name = "item") Item item) {
